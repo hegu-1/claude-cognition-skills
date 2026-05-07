@@ -1,117 +1,108 @@
-# NEPM Skill System
+# claude-cognition-skills
 
-A kernel-like cognition skill system for continuity-aware interpretation, structural decision support, trap detection, and faithful translation of nonlinear thought.
+Claude Code skills for what AI tends to get wrong when you've been working with it long enough to feel it.
 
-> Most AI systems are built to respond to requests.  
+> Most AI systems are built to respond to requests.
 > This system is built to detect structure in motion.
 
-## What This Is
+---
 
-Most AI skills today are built to do tasks.
+## You've probably noticed this
 
-This repository is built to read movement.
+If you've been collaborating with AI long enough — not single-shot Q&A, but actual multi-turn work over hours and days — you've probably hit some version of these:
 
-It is designed for cases where surface intent is not enough, and where the real problem is hidden in structure:
+- **It closes too early.** You're still figuring out the shape of the problem; the AI commits to an answer.
+- **It drifts upward.** A concrete question slowly becomes an abstract framework. You started asking about a button and ended up discussing "user value paradigms."
+- **It produces before you've finished thinking.** You're mid-sentence, mid-structure; the AI is already generating the polished version.
+- **It smooths your judgment away.** You ask it to translate a raw thought into something sendable. What comes back is corporate language with the sharp edges sanded off — and the original judgment is gone.
+- **It tracks the keywords, not the thread.** You shift the topic; it follows the surface words and misses that you've moved.
+- **It accelerates when path quality drops.** Things look productive — output is flowing — but you're getting further from the real problem, not closer.
 
-- multiple threads colliding at once
-- nonlinear thought that is ahead of language
-- decisions forming without a stable surface
-- output being requested before structure is clear
-- translation that risks erasing the original judgment
-- momentum increasing while path quality decreases
+These are not bugs in the model. They are default behaviors. You only notice them when you're the human standing inside the collaboration long enough to feel it.
 
-This system treats those situations not as noise, but as the actual operating environment.
+This repo is for that situation.
 
-## What Makes This Different
+---
 
-This is not a generic productivity toolkit.
+## What's in here
 
-This is not just a prompt collection.
+Six Claude Code skills, each targeting a specific failure mode:
 
-This is not a standard assistant workflow layer.
+| Skill | Targets the failure of... |
+|---|---|
+| **`nepm-kernel`** | reading the situation before answering — what thread, what phase, what kind of move is needed |
+| **`nepm-orchestrator`** | knowing which skill to invoke first instead of running everything |
+| **`trap-detector`** | catching when momentum is up but path quality is dropping (premature closure, abstraction drift, output-before-structure, etc.) |
+| **`helpful-now-deriver`** | the smallest genuinely useful next move — not the most complete answer |
+| **`decision-snapshot-builder`** | building a stable temporary decision surface from overloaded or nonlinear thinking |
+| **`founder-thought-translator`** | turning raw thought into something sendable **without** erasing the original judgment |
 
-The NEPM Skill System is a structural interface layer for cognition in motion.
+Each skill is a `SKILL.md` you can drop into `~/.claude/skills/` and use directly with Claude Code.
 
-Its goal is not to define cognition itself.
+---
 
-Its goal is to:
+## How to try one in 30 seconds
 
-- preserve continuity across movement
-- identify the active thread and phase
-- detect structural traps before distortion hardens
-- generate decision snapshots when needed
-- translate raw thought into usable external form without betraying its core judgment
-- know when to continue, constrain, degrade, or stop
+```bash
+git clone https://github.com/hegu-1/claude-cognition-skills.git
+mkdir -p ~/.claude/skills
+cp -r claude-cognition-skills/skills/* ~/.claude/skills/
+```
 
-In other words:
+Then in Claude Code, just talk normally. The skills self-trigger when the situation matches.
 
-Most systems try to answer better.  
-This system tries to understand what kind of movement is happening before answering.
+For concrete examples of how a skill activates and what it produces, see [`examples/`](./examples).
 
-## Core Orientation
+---
 
-The system does not define the ontology of cognition.
+## Why this exists
 
-It receives cognitive movement, preserves path integrity across that movement, creates snapshots where needed, and translates the result into externally usable form.
+AI collaboration is in transition.
 
-That makes it especially relevant for:
+Single-shot prompting is being replaced by long-horizon work — agents, sustained sessions, multi-day threads. In that transition, a class of problems shows up that doesn't exist in the old mode:
 
-- founders
-- researchers
-- system designers
-- high-context operators
-- human-AI workflows that unfold across time rather than in one-shot prompts
-- Personal AI OS or continuity-aware agent systems
+- continuity across sessions
+- protecting judgment when translating across audiences
+- knowing when to stop and snapshot vs. when to continue
+- detecting when a session is going off-track before it's too late
 
-## Included Skills
+There aren't many people working on these problems explicitly yet. Most agent-infrastructure conversation is still about task completion, not collaboration quality.
 
-### `nepm-kernel`
+This repo is one early attempt at making those problems operable.
 
-The main interpretive layer.
+> The system does not define the ontology of cognition.
+> It receives cognitive movement, preserves path integrity across that movement, creates snapshots where needed, and translates the result into externally usable form.
 
-Used when the goal is not merely to answer a request, but to determine what is happening structurally: thread, phase, move type, trap risk, helpful next move, and whether translation or boundary control is needed.
+> Most systems try to answer better.
+> This system tries to understand what kind of movement is happening before answering.
 
-### `nepm-orchestrator`
+---
 
-The routing layer.
+## Design Principles
 
-Decides which skill should be invoked first and whether multiple skills should be chained.
+These are the operating principles. The skills inherit from them.
 
-### `trap-detector`
+**1. Structure Before Polish**
+Do not generate polished output before reading the real structure.
 
-Detects when movement appears active but path quality is degrading.
+**2. Continuity Over Keyword Matching**
+Interpretation should follow the path, not just the surface phrasing.
 
-This includes premature closure, abstraction drift, thread collision, output-before-structure, proxy drift, and execution overrun.
+**3. Minimal Intervention, Maximal Gain**
+The best next move is often small.
 
-### `helpful-now-deriver`
+**4. Faithful Translation**
+External usability must not erase the source judgment.
 
-Determines the smallest genuinely useful next move.
+**5. Boundary-Aware Operation**
+A system should know when to continue and when not to accelerate.
 
-Not the most complete answer.  
-Not the longest answer.  
-The right-sized intervention now.
+> The point is not to produce more text immediately.
+> The point is to protect the structure before translation.
 
-### `decision-snapshot-builder`
+---
 
-Builds a stable temporary decision surface from nonlinear or overloaded cognition.
-
-It makes visible:
-
-- what is happening
-- what matters now
-- what is decided
-- what is not decided
-- what risk is present
-- what next move follows
-
-### `founder-thought-translator`
-
-Translates raw founder or system-level thinking into a sendable artifact.
-
-Its role is not to smooth thought into corporate language.
-Its role is to preserve the original judgment while making it usable for another person, team, or context.
-
-## Quick Example
+## A Quick Read of the System in Action
 
 Raw input:
 
@@ -147,126 +138,52 @@ Possible structural read:
 }
 ```
 
-The point is not to produce more text immediately.
-The point is to protect the structure before translation.
+The output is not the answer. It is a **read** — what kind of movement is happening, and what the smallest useful next move is.
 
-## Example Operating Logic
+The system chooses the smallest correct structural path, not the largest workflow.
 
-A nonlinear founder fragment may pass through:
-
-```text
-nepm-kernel
--> decision-snapshot-builder
--> founder-thought-translator
-```
-
-A structurally unstable execution moment may pass through:
-
-```text
-nepm-kernel
--> trap-detector
--> helpful-now-deriver
-```
-
-This system is designed to choose the smallest correct structural path, not the largest workflow.
-
-## Why This Exists
-
-There is a gap between:
-
-- raw cognition and external language
-- nonlinear thought and standard interfaces
-- continuity across time and one-shot task systems
-- decision tension and sendable output
-- active movement and structural readability
-
-This repository exists to make that gap operable.
-
-## Design Principles
-
-### 1. Structure Before Polish
-
-Do not generate polished output before reading the real structure.
-
-### 2. Continuity Over Keyword Matching
-
-Interpretation should follow the path, not just the surface phrasing.
-
-### 3. Minimal Intervention, Maximal Gain
-
-The best next move is often small.
-
-### 4. Faithful Translation
-
-External usability must not erase the source judgment.
-
-### 5. Boundary-Aware Operation
-
-A system should know when to continue and when not to accelerate.
-
-## Repository Structure
-
-```text
-nepm-skill-system/
-  README.md
-  LICENSE
-  .gitignore
-  skills/
-    nepm-kernel/
-      SKILL.md
-    nepm-orchestrator/
-      SKILL.md
-    trap-detector/
-      SKILL.md
-    helpful-now-deriver/
-      SKILL.md
-    decision-snapshot-builder/
-      SKILL.md
-    founder-thought-translator/
-      SKILL.md
-  examples/
-    example-founder-fragment.md
-    example-decision-overload.md
-    example-translation-case.md
-```
+---
 
 ## Intended Use Cases
 
-- founder support
-- strategic writing
-- continuity-aware AI interfaces
-- decision support under overload
-- personal AI OS architecture
-- human-AI collaboration over long horizons
-- interpretive layers for agent systems
-- cognitive infrastructure experiments
+- founders working alone or in small teams
+- system designers and architects
+- researchers in long-form thinking work
+- high-context operators (people whose work moves faster than typing speed)
+- Personal AI OS or continuity-aware agent systems
+- human-AI workflows that unfold across days and weeks, not single prompts
 
-## Current Status
+If you are building a chatbot, this is probably not for you.
+If you are building a co-thinker, it might be.
 
-Early structural version.
+---
 
-The goal at this stage is not completeness.
+## This is early. Come help.
 
-The goal is to preserve the architecture clearly enough that it can be reused, tested, extended, and eventually deployed as a real skill system.
+If you've been quietly building in this space — continuity-aware AI, long-horizon collaboration, founder-level cognitive support, anything that treats AI as a co-thinker rather than an answer-engine — this repo is a beacon.
 
-## One-Line Summary
+The naming probably won't survive — `NEPM` is a working title, not a brand. The skill structure will likely evolve. What matters:
 
-A skill system for reading cognitive structure before producing output.
+- there is a real category of problems here
+- it is underfilled
+- the people who'll figure it out are the ones who've already felt it
 
-## Repository Metadata
+If that's you, open an issue, fork it, or just reach out.
 
-Suggested GitHub description:
+---
 
-```text
-A kernel-like cognition skill system for continuity-aware interpretation, structural decision support, trap detection, and faithful translation of nonlinear thought.
-```
+## Status
 
-Suggested tags:
+Early. Reference architecture, not production framework.
+6 skills documented, runnable as Claude Code skills.
+No external dependencies — pure prompt and structural design.
 
-```text
-skills
-agent
-cognition
-decision-support
-ai-os
-```
+An earlier version with the full structural reasoning is archived at [`hegu-1/nepm-skill-system`](https://github.com/hegu-1/nepm-skill-system) (public, frozen).
+
+License: MIT.
+
+---
+
+## One-line summary
+
+Skills for what AI gets wrong when you collaborate with it for real.
