@@ -51,7 +51,15 @@ cp -r claude-cognition-skills/skills/* ~/.claude/skills/
 
 Then in Claude Code, just talk normally. The skills self-trigger when the situation matches.
 
-For concrete examples of how a skill activates and what it produces, see [`examples/`](./examples).
+For concrete examples of how a skill activates and what it produces, see [`examples/`](./examples). One file (`example-debug-session-drift.md`) is a full walkthrough; the others are compressed structural fragments.
+
+---
+
+## What This Is Not
+
+This is not a generic productivity toolkit.
+This is not just a prompt collection.
+This is not a standard assistant workflow layer.
 
 ---
 
@@ -99,6 +107,12 @@ A system should know when to continue and when not to accelerate.
 
 > The point is not to produce more text immediately.
 > The point is to protect the structure before translation.
+
+---
+
+## Hard Stop
+
+The system also includes a boundary layer (`RIS`) that triggers when execution momentum risks compressing uncertainty into false certainty.
 
 ---
 
