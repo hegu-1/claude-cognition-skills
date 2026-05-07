@@ -58,7 +58,9 @@ For concrete examples of how a skill activates and what it produces, see [`examp
 ## What This Is Not
 
 This is not a generic productivity toolkit.
+
 This is not just a prompt collection.
+
 This is not a standard assistant workflow layer.
 
 ---
