@@ -1,3 +1,5 @@
+> **Note:** This is the reference implementation. The broader thesis is at [`coevolution-kernel`](https://github.com/hegu-1/coevolution-kernel).
+
 # claude-cognition-skills
 
 Claude Code skills for what AI tends to get wrong when you've been working with it long enough to feel it.
