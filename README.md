@@ -9,6 +9,18 @@ Claude Code skills for what AI tends to get wrong when you've been working with 
 
 ---
 
+## Positioning
+
+**Schema**: 100% [Agent Skills spec](https://agentskills.io/specification) compatible — each `SKILL.md` validates against the official spec (`name`, `description`, `metadata`, `compatibility`, `license`).
+
+**Layer**: `cognitive-meta` — orthogonal to task-completion skills (PDF processing, code generation, doc creation, etc.). These skills don't teach Claude *how to do X*; they teach Claude *how to read what kind of movement is happening* before deciding what to do.
+
+**What this fills**: the gap between Anthropic's official horizontal task skills and the structural problems that only surface in long-horizon multi-turn collaboration — continuity across sessions, trap detection mid-flight, judgment-preserving translation, decision-surface construction from overloaded thinking. These problems don't exist in single-shot Q&A; they emerge when you've been inside the collaboration long enough to feel them.
+
+The two layers stack rather than compete: task skills are the *what*, cognitive-meta skills are the *how-do-I-know-I'm-on-the-right-path*.
+
+---
+
 ## You've probably noticed this
 
 If you've been collaborating with AI long enough — not single-shot Q&A, but actual multi-turn work over hours and days — you've probably hit some version of these:

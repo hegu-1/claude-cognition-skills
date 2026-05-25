@@ -4,6 +4,10 @@ description: >
   Build a clean decision surface from nonlinear or overloaded cognition. Use
   when the user has enough movement, material, or tension that a stable
   snapshot is needed before proceeding.
+metadata:
+  layer: cognitive-meta
+compatibility: Designed for Claude Code in long-horizon multi-turn sessions. Not intended for single-shot task completion.
+license: MIT
 ---
 
 # Decision Snapshot Builder Skill

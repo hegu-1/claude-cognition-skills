@@ -6,6 +6,10 @@ description: >
   skill when the goal is not just to answer a question, but to determine the
   user's current cognitive state, thread, phase, movement type, trap risk, and
   what is actually helpful now.
+metadata:
+  layer: cognitive-meta
+compatibility: Designed for Claude Code in long-horizon multi-turn sessions. Not intended for single-shot task completion.
+license: MIT
 ---
 
 # NEPM Kernel Skill

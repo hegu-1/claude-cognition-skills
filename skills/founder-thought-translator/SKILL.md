@@ -5,6 +5,10 @@ description: >
   without erasing the original judgment, structure, or landing point. Use when
   nonlinear cognition must become a memo, email, PRD, note, pitch, or
   operational instruction.
+metadata:
+  layer: cognitive-meta
+compatibility: Designed for Claude Code in long-horizon multi-turn sessions. Not intended for single-shot task completion.
+license: MIT
 ---
 
 # Founder Thought Translator Skill

@@ -5,6 +5,10 @@ description: >
   situation primarily requires kernel interpretation, trap detection,
   helpful-now derivation, decision snapshot building, or founder-thought
   translation.
+metadata:
+  layer: cognitive-meta
+compatibility: Designed for Claude Code in long-horizon multi-turn sessions. Not intended for single-shot task completion.
+license: MIT
 ---
 
 # NEPM Orchestrator Skill

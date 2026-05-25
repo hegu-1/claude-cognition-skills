@@ -4,6 +4,10 @@ description: >
   Determine the smallest genuinely useful next move based on the user's current
   structural state. Use when the goal is not to answer maximally, but to
   intervene minimally and effectively.
+metadata:
+  layer: cognitive-meta
+compatibility: Designed for Claude Code in long-horizon multi-turn sessions. Not intended for single-shot task completion.
+license: MIT
 ---
 
 # Helpful Now Deriver Skill

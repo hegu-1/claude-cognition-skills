@@ -4,6 +4,10 @@ description: >
   Detect whether the current user movement is entering a cognitive, structural,
   or execution trap. Use when output momentum appears active, but path quality,
   interpretability, or decision integrity may be degrading.
+metadata:
+  layer: cognitive-meta
+compatibility: Designed for Claude Code in long-horizon multi-turn sessions. Not intended for single-shot task completion.
+license: MIT
 ---
 
 # Trap Detector Skill
